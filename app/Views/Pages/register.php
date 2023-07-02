@@ -32,7 +32,7 @@ $password = [
                 <div class="d-flex justify-content-center py-4">
                     <a href="index.html" class="logo d-flex align-items-center w-auto">
                         <img src="<?php echo base_url() ?>public/NiceAdmin/assets/img/logo.png" alt="">
-                        <span class="d-none d-lg-block">Balaraja</span>
+                        <span class="d-none d-lg-block">Toko Naris Syariah</span>
                     </a>
                 </div><!-- End Logo -->
                 <div class="card mb-3">
