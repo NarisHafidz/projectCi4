@@ -32,6 +32,7 @@ class ProdukController extends BaseController
                 'nama' => $this->request->getPost('nama'),
                 'harga' => $this->request->getPost('harga'),
                 'jumlah' => $this->request->getPost('jumlah'),
+                'discount' => $this->request->getPost('discount'),
                 'keterangan' => $this->request->getPost('keterangan')
             ];
 
@@ -62,6 +63,7 @@ class ProdukController extends BaseController
                 'nama' => $this->request->getPost('nama'),
                 'harga' => $this->request->getPost('harga'),
                 'jumlah' => $this->request->getPost('jumlah'),
+                'discount' => $this->request->getPost('discount'),
                 'keterangan' => $this->request->getPost('keterangan')
             ];
 

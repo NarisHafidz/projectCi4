@@ -103,17 +103,21 @@ class UserController extends BaseController
         $data = $this->request->getPost();
         $validate = $this->validation->run($data, 'user');
         $errors = $this->validation->getErrors();
-
+    
         if (!$errors) {
+            $dataForm = [
+                'username' => $this->request->getPost('username'),
+                'role' => $this->request->getPost('role'),
+            ];
+    
             // Proses pembaruan data pengguna ke database
-            // ...
-
+            $this->userModel->update($id, $dataForm);
+    
             return redirect()->to('/user')->with('success', 'User updated successfully.');
         } else {
             return redirect()->back()->withInput()->with('errors', $errors);
         }
     }
-
     public function delete($id)
     {
         // Lakukan validasi ID pengguna

@@ -1,3 +1,4 @@
+home
 <?= $this->extend('components/layout') ?>
 <?= $this->section('content') ?>
 <?php
@@ -18,12 +19,13 @@ if (session()->getFlashData('success')) {
 			echo form_hidden('id', $produk['id']);
 			echo form_hidden('nama', $produk['nama']);
 			echo form_hidden('harga', $produk['harga']);
+			echo form_hidden('discount', $produk['discount']);		
 			echo form_hidden('foto', $produk['foto']);
 			?>
 			<div class="card">
 				<div class="card-body">
 					<img src="<?php echo base_url() . "public/img/" . $produk['foto'] ?>" alt="..." width="300px">
-					<h5 class="card-title"><?php echo $produk['nama'] ?><br><?php echo number_to_currency($produk['harga'], 'IDR') ?></h5>
+					<h5 class="card-title"><?php echo $produk['nama'] ?><br><s><?php echo number_to_currency($produk['harga'], 'IDR') ?></s><br><?php echo number_to_currency ($produk['harga'] - ($produk['harga'] * $produk['discount'] / 100), 'IDR'); ?></td></h5>
 					<button type="submit" class="btn btn-info rounded-pill">Beli</button>
 				</div>
 			</div>

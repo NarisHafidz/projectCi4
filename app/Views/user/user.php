@@ -78,18 +78,22 @@
                 <td><?php echo $user['role'] ?></td>
                 <td><?php echo $user['is_aktif'] ? 'Aktif' : 'Non-Aktif' ?></td>
                 <td>
-                    <?php if ($user['is_aktif']) : ?>
-                        <a href="<?= base_url('user/deactivate/' . $user['id']) ?>" class="btn btn-warning" onclick="return confirm('Nonaktifkan pengguna ini?')">
-                            Nonaktifkan
-                        </a>
-                    <?php else : ?>
-                        <a href="<?= base_url('user/activate/' . $user['id']) ?>" class="btn btn-success" onclick="return confirm('Aktifkan pengguna ini?')">
-                            Aktifkan
-                        </a>
-                    <?php endif; ?>
-                    <a href="<?= base_url('user/delete/' . $user['id']) ?>" class="btn btn-danger" onclick="return confirm('Hapus pengguna ini?')">
-                        Hapus
+                <?php if ($user['is_aktif']) : ?>
+                <a href="<?= base_url('user/deactivate/' . $user['id']) ?>" class="btn btn-warning" onclick="return confirm('Nonaktifkan pengguna ini?')">
+                 Nonaktifkan
+                </a>
+            <?php elseif (!$user['is_aktif']) : ?>
+                <a href="<?= base_url('user/activate/' . $user['id']) ?>" class="btn btn-success" onclick="return confirm('Aktifkan pengguna ini?')">
+                Aktifkan
+                 </a>
+            <?php endif; ?>
+                <a href="<?= base_url('user/delete/' . $user['id']) ?>" class="btn btn-danger" onclick="return confirm('Hapus pengguna ini?')">
+                 Hapus
                     </a>
+                <a href="<?= base_url('user/edit/' . $user['id']) ?>" class="btn btn-danger" onclick="return confirm('Update pengguna ini?')">
+                Edit
+                </a>
+
                 </td>
             </tr>
         <?php endforeach ?>
